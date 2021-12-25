@@ -1,0 +1,16 @@
+[package]
+name = "fae"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0.132", features = ["derive"] }
+toml = "0.5.8"
+tokio = { version = "1", features = ["full"] }
+futures = "0.3.19"
+async-recursion = "0.3.2"
+dashmap = "5.0.0"
+serde_json = "1.0.73"
+which = "4.2.2"
