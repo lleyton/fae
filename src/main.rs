@@ -166,7 +166,12 @@ async fn main() {
 
     if script.is_none() {
         // TODO: Get the program version here somehow
-        println!("Fae nightly");
+        let branch = env!("VERGEN_GIT_BRANCH");
+        println!(
+            "Fae {} v{}",
+            if branch == "main" { "stable" } else { branch },
+            env!("VERGEN_BUILD_SEMVER")
+        );
         println!("Usage: {} <script>", args[0]);
 
         return;

@@ -1,6 +1,6 @@
 [package]
 name = "fae"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -17,3 +17,6 @@ which = "4.2.2"
 
 # Terminal output coloring
 ansi_term = "0.12"
+
+[build-dependencies]
+vergen = "6.0.0"
