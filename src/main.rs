@@ -8,6 +8,8 @@ use std::{env, fs};
 use tokio::process::Command;
 use toml;
 
+mod out;
+
 #[derive(Deserialize, Debug)]
 struct CommandConfig {
     uses: Option<Vec<String>>,
@@ -155,10 +157,24 @@ async fn run_script(
 
 #[tokio::main]
 async fn main() {
+    // Before we do anything, we want to change how the panic message will look
+    // so they are more user friendly
+    out::change_panic_message();
+
     let args: Vec<String> = env::args().collect();
-    let script = &args
-        .get(1)
-        .expect(format!("Usage: {} <script>", args[0]).as_str());
+    let script = &args.get(1);
+
+    if script.is_none() {
+        // TODO: Get the program version here somehow
+        println!("Fae nightly");
+        println!("Usage: {} <script>", args[0]);
+
+        return;
+    }
+
+    // We have already caught the case where not enough args are passed in, so
+    // this is safe
+    let script = script.unwrap();
 
     let mut env_overrides = HashMap::new();
     let mut config = HashMap::new();
