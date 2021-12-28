@@ -165,7 +165,6 @@ async fn main() {
     let script = &args.get(1);
 
     if script.is_none() {
-        // TODO: Get the program version here somehow
         let branch = env!("VERGEN_GIT_BRANCH");
         println!(
             "Fae {} v{}",
