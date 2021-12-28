@@ -8,7 +8,7 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.132", features = ["derive"] }
 toml = "0.5.8"
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process"] }
 futures = "0.3.19"
 async-recursion = "0.3.2"
 dashmap = "5.0.0"
