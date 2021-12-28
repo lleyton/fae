@@ -2,8 +2,13 @@
 name = "fae"
 version = "0.2.1"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["Lleyton Gray <lleyton@innatical.com>"]
+description = "The Simple Task Runner"
+homepage = "https://github.com/lleyton/fae"
+repository = "https://github.com/lleyton/fae"
+license = "MIT"
+categories = ["development-tools"]
+readme = "README.md"
 
 [dependencies]
 serde = { version = "1.0.132", features = ["derive"] }
