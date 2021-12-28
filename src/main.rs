@@ -169,7 +169,11 @@ async fn main() {
         let branch = env!("VERGEN_GIT_BRANCH");
         println!(
             "Fae {} v{}",
-            if branch == "main" { "stable" } else { branch },
+            if branch == "main" || branch == "master" {
+                "stable"
+            } else {
+                branch
+            },
             env!("VERGEN_BUILD_SEMVER")
         );
         println!("Usage: {} <script>", args[0]);
