@@ -8,6 +8,7 @@ use std::{env, fs};
 use tokio::process::Command;
 use toml;
 
+mod autocorrection;
 mod out;
 
 #[derive(Deserialize, Debug)]
@@ -228,6 +229,10 @@ async fn main() {
         let fae: HashMap<String, CommandConfig> = toml::from_str(&content)
             .expect("Could not parse config file, make sure that it is valid TOML");
         config.extend(fae);
+
+        // To provide better user experience, we want to provide something like
+        // autocorrection if a user gets a field name somewhat wrong
+        autocorrection::run(&content);
     }
 
     let mut script_args = env::args();
